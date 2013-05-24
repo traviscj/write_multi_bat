@@ -43,13 +43,11 @@ class write_mult_bat(object):
         to decide when to start/stop.
         """
 
-        result = []
-
-        i=0
-        while self.first + self.step*i < self.last:
+        i,result,curStart,curEnd=0,[],self.first,self.first+self.step
+        while curEnd < self.last:
             curStart = self.first + self.step*i
-            curEnd = self.first + self.step*(i+1)-1
-            
+            curEnd = min(self.first + self.step*(i+1)-1,self.last)
+
             # fill in the template information using this loop and the
             # information this function was passed:
             result.append(
