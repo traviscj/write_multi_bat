@@ -30,10 +30,13 @@ pause
 
 
 class write_mult_bat(object):
-    def __init__(self, project, input_file, output_directory):
+    def __init__(self, project, input_file, output_directory, first, last, step):
         self.project = project
         self.input_file = input_file
         self.output_directory = output_directory
+        self.first = first
+        self.last = last
+        self.step = step
         
     def render_data(self):
         """ render_data generates the data that goes into the .bat files, given
@@ -47,16 +50,18 @@ class write_mult_bat(object):
 
         result = []
 
-        RANGE = 5
-        for i in range(RANGE):
-
+        i=0
+        while self.first + self.step*i < self.last:
+            # THIS is where to change the start/end stuff.
+            curStart = self.first + self.step*i
+            curEnd = self.first + self.step*(i+1)-1
+            
             # fill in the template information using this loop and the
             # information this function was passed:
-            # THIS is where to change the start/end stuff.
             result.append(
                 template.format(
-                    start=101+2*i,
-                    end=101+(2*i+1),
+                    start=curStart,
+                    end=curEnd,
                     lognum=i,
                     proj=self.project,
                     infile=self.input_file,
@@ -64,6 +69,8 @@ class write_mult_bat(object):
                     current_time=asctime()
                     )
                 )
+                
+            i += 1
         return result
 
     def render_files(self, renderfiles_list, bat_file_prefix):
@@ -141,8 +148,12 @@ if __name__ == "__main__":
     wmb = write_mult_bat(
         "paper_dancer",
         "\\\\goliath\STORAGE1\prod\jobs\internal\paper_dancer\shots\dancer\010\components\light2\work\010_light2_work_0015.ma",
-        "\\\\goliath\STORAGE1\prod\jobs\internal\paper_dancer\maya\images"
+        "\\\\goliath\STORAGE1\prod\jobs\internal\paper_dancer\maya\images",
+        first=101,
+        last=110,
+        step=2
         )
     zipfilename = wmb.render_zip();
     print("Generated file was: {zipfile}".format(zipfile=zipfilename))
     
+
