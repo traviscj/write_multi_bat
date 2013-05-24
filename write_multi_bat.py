@@ -141,7 +141,7 @@ if __name__ == "__main__":
     # THIS is where to change project names and files and output directories.
     wmb = write_mult_bat(
         r"paper_dancer",
-        r"\\goliath\STORAGE1\prod\jobs\internal\paper_dancer\shots\dancer\\010\components\light2\work\\010_light2_work_0015.ma",
+        r"\\goliath\STORAGE1\prod\jobs\internal\paper_dancer\shots\dancer\010\components\light2\work\010_light2_work_0015.ma",
         r"\\goliath\STORAGE1\prod\jobs\internal\paper_dancer\maya\images",
         first=101,
         last=110,
