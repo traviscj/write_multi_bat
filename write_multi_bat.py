@@ -104,7 +104,8 @@ class write_mult_bat(object):
 
         # finally, return it.
         return bat_file_list,bat_full_file_list
-
+    def render_text(self):
+        return "".join(self.render_data())
     def render_zip(self):
         """ render_zip takes project, input file, and output directory and 
         returns the name of a zipfile containing all of the .bat files to do
@@ -147,5 +148,6 @@ if __name__ == "__main__":
         last=110,
         step=2
         )
+    print(wmb.render_text())
     zipfilename = wmb.render_zip();
     print("Generated file was: {zipfile}".format(zipfile=zipfilename))
