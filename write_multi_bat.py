@@ -6,7 +6,7 @@
 __author__ = "Travis C. Johnson"
 __copyright__ = "Copyright 2013, Travis C. Johnson"
 __credits__ = ["Travis C. Johnson", "Jonathan Beals"]
-__license__ = "BSD 4-clause"
+__license__ = "MIT"
 __version__ = "1.0.0"
 __maintainer__ = "Travis C. Johnson"
 __email__ = "traviscj@traviscj.com"
