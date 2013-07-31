@@ -147,5 +147,5 @@ if __name__ == "__main__":
         step=2
         )
     print(wmb.render_text())
-    zipfilename = wmb.render_zip();
-    print("Generated file was: {zipfile}".format(zipfile=zipfilename))
+    # zipfilename = wmb.render_zip();
+    # print("Generated file was: {zipfile}".format(zipfile=zipfilename))
